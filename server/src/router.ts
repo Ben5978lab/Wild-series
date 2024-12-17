@@ -6,7 +6,7 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Define item-related routes
+import categoryActions from "./modules/category/categoryActions";
 import itemActions from "./modules/item/itemActions";
 
 router.get("/api/items", itemActions.browse);
@@ -21,5 +21,9 @@ import sayActions from "./modules/say/sayActions";
 router.get("/", sayActions.sayWelcome);
 
 router.get("/api/programs", programAction.browse);
+router.get("/api/programs/:id", programAction.read);
+
+router.get("/api/categories", categoryActions.browse);
+router.get("/api/categories/:id", categoryActions.read);
 
 export default router;
